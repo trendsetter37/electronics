@@ -49,11 +49,11 @@ def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
         'h'   : 100,
         'da'  : 10,
         'base': 1,
-        'd'   : .1,
-        'c'   : .01,
-        'm'   : .001,
-        'u'   : .000001,
-        'n'   : .000000001,
+        'd'   : 0.1,
+        'c'   : 0.01,
+        'm'   : 0.001,
+        'u'   : 0.000001,
+        'n'   : 0.000000001,
         'p'   : 0.000000000001
     }
 
@@ -62,14 +62,14 @@ def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
         'giga'   : 1000000000,
         'mega'   : 1000000,
         'kilo'   : 1000,
-        'hecta'   : 100,
-        'deca'  : 10,
-        'base': 1,
-        'deci'   : .1,
-        'centi'   : .01,
-        'milli'   : .001,
-        'micro'   : .000001,
-        'nano'   : .000000001,
+        'hecta'  : 100,
+        'deca'   : 10,
+        'base'   : 1,
+        'deci'   : 0.1,
+        'centi'  : 0.01,
+        'milli'  : 0.001,
+        'micro'  : 0.000001,
+        'nano'   : 0.000000001,
         'pico'   : 0.000000000001
     }
 

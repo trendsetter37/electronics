@@ -14,5 +14,5 @@ def resonant_frequency(capacitance, inductance):
         to the output, irregardless of what the inputs were (strings with unit suffixes in
         this case )
         '''
-    
+    # returns the frequency of resonance in hertz
     return 1/((2*math.pi) * math.sqrt(float(capacitance) * inductance))

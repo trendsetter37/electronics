@@ -1,5 +1,43 @@
 import math
 
+# units to use during conversion functions
+units = {
+        'T'   : (1000000000000, 10**12),
+        'G'   : (1000000000, 10**9),
+        'M'   : (1000000, 10**6),
+        'k'   : (1000, 10**3),
+        'h'   : (100, 10**2),
+        'da'  : (10, 10),
+        'base': (1,1),
+        'd'   : (0.1, 10**-1), 
+        'c'   : (0.01, 10**-2),
+        'm'   : (0.001, 10**-3),
+        'u'   : (0.000001, 10**-6),
+        'n'   : (0.000000001, 10**-9),
+        'p'   : (0.000000000001, 10**-12)
+    }
+
+units1 = {
+        'tera'   : (1000000000000, 10**12),
+        'giga'   : (1000000000, 10**9),
+        'mega'   : (1000000, 10**6),
+        'kilo'   : (1000, 10**3),
+        'hecta'  : (100, 10**2),
+        'deca'   : (10, 10),
+        'base'   : (1,1),
+        'deci'   : (0.1, 10**-1),
+        'centi'  : (0.01, 10**-2),
+        'milli'  : (0.001, 10**-3),
+        'micro'  : (0.000001, 10**-6),
+        'nano'   : (0.000000001, 10**-9),
+        'pico'   : (0.000000000001, 10**-12)
+    }
+# still have things to work on here
+def human_readable_frequency(freq, convert_to='base', convert_from='base'):
+   
+    result = (freq* units1[convert_from][1]) / (units1[convert_to][1])
+    return result
+
 def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
     ''' *** electronics.electronics.py
         * Useful for LC circuit work
@@ -39,51 +77,21 @@ def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
         letters of above
 
         '''
-    # convert capacitance and inductance from strings
-    # to there respective base values
-    units = {
-        'T'   : 1000000000000,
-        'G'   : 1000000000,
-        'M'   : 1000000,
-        'k'   : 1000,
-        'h'   : 100,
-        'da'  : 10,
-        'base': 1,
-        'd'   : 0.1,
-        'c'   : 0.01,
-        'm'   : 0.001,
-        'u'   : 0.000001,
-        'n'   : 0.000000001,
-        'p'   : 0.000000000001
-    }
-
-    units1 = {
-        'tera'   : 1000000000000,
-        'giga'   : 1000000000,
-        'mega'   : 1000000,
-        'kilo'   : 1000,
-        'hecta'  : 100,
-        'deca'   : 10,
-        'base'   : 1,
-        'deci'   : 0.1,
-        'centi'  : 0.01,
-        'milli'  : 0.001,
-        'micro'  : 0.000001,
-        'nano'   : 0.000000001,
-        'pico'   : 0.000000000001
-    }
-
+    
     # This should return frequency in Hz 
     if c_unit == 'base' and i_unit == 'base':
-        return 1/((2*math.pi) * math.sqrt(float(capacitance) * float(inductance)))  
+        result = 1/((2*math.pi) * math.sqrt(float(capacitance) * float(inductance)))
+        return result
 
     elif c_unit in units and i_unit in units:
-        return  1/((2*math.pi) * math.sqrt((float(capacitance)* units[c_unit])\
+        result = 1/((2*math.pi) * math.sqrt((float(capacitance)* units[c_unit])\
                 * (float(inductance)*units[i_unit])))
+        return result 
 
     elif c_unit in units1 and i_unit in units1:
-        return 1/((2*math.pi) * math.sqrt((float(capacitance)* units1[c_unit])\
+        result = 1/((2*math.pi) * math.sqrt((float(capacitance)* units1[c_unit])\
                 * (float(inductance)*units1[i_unit])))
+        return result
 
     
     

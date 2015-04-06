@@ -34,6 +34,8 @@ units1 = {
     }
 # still have things to work on here
 def human_readable_frequency(freq, convert_to='base', convert_from='base'):
+    ''' Works a little bit. Improve functionality '''
+    # TODO make printout pretty
    
     result = (freq* units1[convert_from][1]) / (units1[convert_to][1])
     return result
@@ -95,3 +97,9 @@ def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
 
     
     
+
+def calculate_inductance():
+    ''' TODO '''
+
+def calculate_capacitance():
+    ''' TODO '''

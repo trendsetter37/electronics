@@ -76,7 +76,7 @@ def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
         deci    d      0.1
         centi   c      0.01
         milli   m      0.001
-        micro   µ      0.000 001 # the letter 'u' can be used here
+        micro   u      0.000 001 # the letter 'u' can be used here
         nano    n      0.000 000 001
         pico    p      0.000 000 000 001
 

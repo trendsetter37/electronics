@@ -1,4 +1,5 @@
 import math
+''' Will add command line interaction soon '''
 
 # units to use during conversion functions
 units = {
@@ -32,6 +33,12 @@ units1 = {
         'nano'   : (0.000000001, 10**-9),
         'pico'   : (0.000000000001, 10**-12)
     }
+
+CONSTANTS = {
+    'uo'    : 4*Math.pi * 10**-7,
+    'eo'    : 8.8541878*10**-12
+
+}
 # still have things to work on here
 def human_readable_frequency(freq, convert_to='base', convert_from='base'):
     ''' Works a little bit. Improve functionality '''
@@ -98,8 +105,22 @@ def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
     
     
 
-def calculate_inductance():
-    ''' TODO '''
+def calculate_inductance(inner_radius=1, coil_length=1, coil_turns=1):
+    '''
+    *********************************************
+    *                                           *
+    * TODO: Testing, and usability prompts      *
+    *********************************************
+        uo is permeability of free space
+        A  = inner core area pi * r^2
+        l  = coil length
+        uo = 4*pi*10^-7'''
 
-def calculate_capacitance():
-    ''' TODO '''
+    return (4*pi*10**-7) * ((coil_turns**2 * (pi * inner_radius**2))/coil_length) 
+
+def calculate_capacitance(sphere_radius=1):
+    ''' 
+        Sphere radius should be in meters preferably
+    '''
+
+    return 4*pi*CONSTANTS['eo']*float(sphere_radius) # Just in case

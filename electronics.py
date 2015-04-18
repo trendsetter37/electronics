@@ -35,16 +35,16 @@ units1 = {
     }
 
 CONSTANTS = {
-    'uo'    : 4*pi * 10**-7,
-    'eo'    : 8.8541878*10**-12
+    'uo'    : 4 * math.pi * 10**-7,
+    'eo'    : 8.8541878 * 10**-12
 
 }
 # still have things to work on here
-def human_readable_frequency(freq, convert_to='base', convert_from='base'):
+def human_readable(value, convert_to='base', convert_from='base'):
     ''' Works a little bit. Improve functionality '''
     # TODO make printout pretty
    
-    result = (freq* units1[convert_from][1]) / (units1[convert_to][1])
+    result = (value * units1[convert_from][1]) / (units1[convert_to][1])
     return result
 
 def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
@@ -89,7 +89,7 @@ def resonant_frequency(capacitance, inductance, c_unit='base', i_unit='base'):
     
     # This should return frequency in Hz 
     if c_unit == 'base' and i_unit == 'base':
-        result = 1/((2*math.pi) * math.sqrt(float(capacitance) * float(inductance)))
+        result = 1 / ( ( 2 * math.pi ) * math.sqrt( float(capacitance ) * float( inductance )))
         return result
 
     elif c_unit in units and i_unit in units:
@@ -116,11 +116,11 @@ def calculate_inductance(inner_radius=1, coil_length=1, coil_turns=1):
         l  = coil length
         uo = 4*pi*10^-7'''
 
-    return (4*pi*10**-7) * ((coil_turns**2 * (pi * inner_radius**2))/coil_length) 
+    return (4*math.pi*10**-7) * ((coil_turns**2 * (math.pi * inner_radius**2))/coil_length) 
 
-def calculate_capacitance(sphere_radius=1):
+def calculate_capacitance(sphere_radius, output_unit='base', input_unit='base'):
     ''' 
         Sphere radius should be in meters preferably
     '''
-
-    return 4*pi*CONSTANTS['eo']*float(sphere_radius) # Just in case
+    result = 4 * math.pi * CONSTANTS['eo'] * float(sphere_radius) # Just in case 
+    return human_readable(result, convert_to=output_unit, convert_from=input_unit)

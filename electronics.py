@@ -124,3 +124,9 @@ def calculate_capacitance(sphere_radius, output_unit='base', input_unit='base'):
     '''
     result = 4 * math.pi * CONSTANTS['eo'] * float(sphere_radius) # Just in case 
     return human_readable(result, convert_to=output_unit, convert_from=input_unit)
+
+def voltage_divider(Voltage, Resistor1, Resistor2):
+    ''' Usage: voltage_divider(Voltage, Resistor1, Resistor2)
+
+        Use ints or floats for the parameters '''
+    return (Resistor2/(Resistor1+Resistor2)) * Voltage
